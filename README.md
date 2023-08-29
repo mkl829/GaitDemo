@@ -1,7 +1,7 @@
-# GaitDemo: A small demo of gait recognition models based on mmWave radar point clouds
+# GaitDemo: A demo of gait recognition models based on mmWave radar point clouds
 The repository contains a PyTorch re-implementation of the following gait recognition models: *mmGaitNet*, *SRPNet*, *TCPCN* and *PointNet*.
 
-*PointNet* is a general classification model based on point clouds, while the other three models are specialized for gait recognition based on point clouds collected by millimeter wave radar.
+*PointNet* is a general classification model based on point clouds, we modified it to fit the data. The other three models are specialized for gait recognition based on point clouds collected by millimeter wave radar.
 
 For more information about these models, please refer to [**Related Papers**](#click_jump).
 
@@ -29,17 +29,17 @@ pip install -r requirements.txt
 ```
 
 ## Usage
-Download the gait dataset from <a href="https://github.com/mmGait/people-gait" target="_blank">here</a>.
+We use an open gait dataset from <a href="https://github.com/mmGait/people-gait" target="_blank">here</a>.
 
-Here we only focus on scenarios with single subject. We choose to use the data from "room1/1/fixed_route/60Ghz_radar" for demo.
+Here we only focus on scenarios with single subject. We choose to use the data from "room1/1/fixed_route/60Ghz_radar" of the above dataset for demo, just as the same as "data/60Ghz_radar" in our repository.
 
 To train a model:
 
     python train.py --model_name <model_name> --data_dir <dataset_folder_dir>
 
-* `<model_name>` can be one of the following options: mmgaitnet, srpnet, tcpcn and pointnet.
+* `<model_name>` can be one of the following options: `mmgaitnet`, `srpnet`, `tcpcn` and `pointnet`.
 
-* `<dataset_folder_dir>` is the directory where the dataset is located in.
+* `<dataset_folder_dir>` is the directory where the dataset is located in. You can omit this parameter if you directly download this repository and don't move the dataset to other directories.
 
 * For more details of the parameter setting, please refer to `train.py`.
 
@@ -51,7 +51,7 @@ To test a model:
 
     python pred.py --model_name  <model_name> --pretrained_parameters_path <pretrained_parameters_path>
 
-* `<pretrained_parameters_path> is the path of pretrained_parameters ("xxx.pth").
+* `<pretrained_parameters_path>` is the path of pretrained_parameters ("xxx.pth").
 
 ## Implementation Details
 
@@ -59,7 +59,7 @@ To test a model:
 
 * Training code is located in `model` folder.
   * Basic tools of training (e.g., confusion matrix drawing, log setting) are placd in `model_prototype.py`.
-  * Core code of training (e.g., forward propagation, loss calculation) is placed in `model_zoo.py`.
+  * Core code of training (e.g., for-/backward propagation, loss calculation) is placed in `model_zoo.py`.
   * Framework code of training (e.g., data loading, basic model setting) is placed in `model_interface.py`.
 
 * Data loading and preprocessing code is located in `dataloader` folder.
@@ -69,6 +69,20 @@ To test a model:
 * You use `train.py` to activate model training.
   
 * You use `pred.py` to activate model testing.
+
+## Results
+We use the data from 5 subjects for the experiment, their IDs are 006, 011, 042, 045 and 046.
+
+We split the dataset into training and validation dataset with the ratio 80 : 20. No test dataset is allocated currently. We just report the best validation accuracy the models achieved, therefore it is just a rough (possibly unfair!) comparison of the models. The results are as follow.
+
+|Model|Average Accuracy(%)|
+|--|--|
+|mmGaitNet|44.6|
+|SRPNet|37.4|
+|TCPCN|49.7|
+|PointNet|50.6|
+
+Pay attention that here we set --lr 1e-4 for *SRPNet*. We did not adopt all the suggested settings from the papers since sometimes they are not suitable for our situation. We will fine-tune the parameters and redo the experiments to achieve a more rigorous results in the future.
 
 ## Related Papers
  <a id="click_jump"></a>
