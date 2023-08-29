@@ -3,7 +3,6 @@
 # Re-implementation based on the paper.
 import torch
 import torch.nn as nn
-#from op import STN3d, STNkd, SharedMLP
 from module.op import STN3d, STNkd, SharedMLP
 
 
