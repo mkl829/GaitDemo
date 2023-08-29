@@ -9,7 +9,7 @@ from module import *
 parser = argparse.ArgumentParser()
 # model unrelated parameters (path etc.)
 parser.add_argument("--data_dir", default="./data/60Ghz_radar/")
-parser.add_argument("pretrained_parameters_path", type=str, help="the path of pretrained parameters (e.g., 'xxx.pth')")
+parser.add_argument("--pretrained_parameters_path", type=str, help="the path of pretrained parameters (e.g., 'xxx.pth')")
 parser.add_argument("--model_name", type=str, help="model name: mmgaitnet/srpnet/tcpcn/pointnet") # used for logging and model setting
 # model related hyper parameters
 parser.add_argument("--num_classes", type=int, default=5, help="number of classes for dataset")
