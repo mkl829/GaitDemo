@@ -29,9 +29,9 @@ pip install -r requirements.txt
 ```
 
 ## Usage
-We use an open gait dataset from <a href="https://github.com/mmGait/people-gait" target="_blank">here</a>.
+We use an open gait dataset from <a href="https://github.com/mmGait/people-gait" target="_blank">here</a>. It is published by the authors of *mmGaitNet*.
 
-Here we only focus on scenarios with single subject. We choose to use the data from "room1/1/fixed_route/60Ghz_radar" of the above dataset for demo, just as the same as "data/60Ghz_radar" in our repository.
+We only focus on scenarios with **single** subject and we only use **single** radar, which is somehow different from what is done in *mmGaitNet*, which tries to combine data from two radars.  We choose to use the data from "room1/1/fixed_route/60Ghz_radar" of the above dataset for demo, just as the same as "data/60Ghz_radar" in our repository.
 
 To train a model:
 
