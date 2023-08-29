@@ -1,15 +1,13 @@
 # GaitDemo: A demo of gait recognition models based on mmWave radar point clouds
 The repository contains a PyTorch re-implementation of the following gait recognition models: *mmGaitNet*, *SRPNet*, *TCPCN* and *PointNet*.
 
-*PointNet* is a general classification model based on point clouds, we modified it to fit the data. The other three models are specialized for gait recognition based on point clouds collected by millimeter wave radar.
+*PointNet* is a general classification model based on point clouds, we have modified it to fit the data. The other three models are specialized for gait recognition based on point clouds collected by millimeter wave radar.
 
 For more information about these models, please refer to [**Related Papers**](#click_jump).
 
-We use a much simplified data preprocess method and on these models.
+Pay attention that we don't follow the original data preprocess method on the papers. Instead, we use a much simplified data preprocess method on these models. Besides, we slightly modify these models so that they can be used on different number of frames and different number of points per frame.
 
-We slightly modify these models so that they can be used on different number of frames and different number of points per frame.
-
-## Dependencies
+## Installation
 The code has been tested with Python 3.9.17, CUDA 11.7 and PyTorch 1.13.1 on Windows 11.
 
 Following is the suggested way to install the dependencies: 
@@ -51,7 +49,7 @@ To test a model:
 
     python pred.py --model_name  <model_name> --pretrained_parameters_path <pretrained_parameters_path>
 
-* `<pretrained_parameters_path>` is the path of pretrained_parameters ("xxx.pth").
+* `<pretrained_parameters_path>` is the path of pretrained_parameters like `"xxx.pth"`.
 
 ## Implementation Details
 
@@ -66,9 +64,9 @@ To test a model:
   * Framework code of a customized dataloader for data loading is placed in `dataloader.py`.
   * Data loading and preprocessing functions are placed in `dataloader_tools.py`.
 
-* You use `train.py` to activate model training.
+* `train.py` is used to activate model training.
   
-* You use `pred.py` to activate model testing.
+* `pred.py` is used to activate model testing.
 
 ## Results
 We use the data from 5 subjects for the experiment, their IDs are 006, 011, 042, 045 and 046.
