@@ -14,7 +14,7 @@ parser.add_argument("--model_name", type=str, help="model name: mmgaitnet/srpnet
 # model related hyper parameters
 parser.add_argument("--num_classes", type=int, default=5, help="number of classes for dataset")
 parser.add_argument("--num_frames", type=int, default=60, help="number of frames for a sample")
-parser.add_argument("--batch_size", type=int, help="size of the batches")
+parser.add_argument("--batch_size", type=int, default=16, help="size of the batches")
 parser.add_argument("--num_pts_per_frame", default=64, type=int, help="number of points per frame")
 opt = parser.parse_args()
 print(opt)
