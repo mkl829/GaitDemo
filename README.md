@@ -25,7 +25,7 @@ conda install pytorch==1.13.1 torchvision==0.14.1 torchaudio==0.13.1 pytorch-cud
 pip install matplotlib numpy pandas scikit-learn tensorboardX tqdm
 
 # Or just use the following command to install all the packages
-pip install -r requirement.txt
+pip install -r requirements.txt
 ```
 
 ## Usage
@@ -37,17 +37,21 @@ To train a model:
 
     python train.py --model_name <model_name> --data_dir <dataset_folder_dir>
 
-`<model_name>` can be one of the following: mmgaitnet, srpnet, tcpcn and pointnet.
+* `<model_name>` can be one of the following options: mmgaitnet, srpnet, tcpcn and pointnet.
 
-`<dataset_folder_dir>` is the directory where the dataset is located in.
+* `<dataset_folder_dir>` is the directory where the dataset is located in.
 
-Log files and network parameters will be saved to `log` folder in default.
+* For more details of the parameter setting, please refer to `train.py`.
+
+* If you want to have a small demo for all the models, just modify `<model_name>` to assign the model you want to use and leave other settings in default. (WARN: This may lead to suboptimal results.)
+
+* Log files and network parameters will be saved to `log` folder in default.
 
 To test a model:
 
-    python pred.py --model_name  <model_name>
+    python pred.py --model_name  <model_name> --pretrained_parameters_path <pretrained_parameters_path>
 
-Please set the parameter path in the **pred.py** manually.
+* `<pretrained_parameters_path> is the path of pretrained_parameters ("xxx.pth").
 
 ## Implementation Details
 
@@ -65,6 +69,7 @@ Please set the parameter path in the **pred.py** manually.
 * You use `train.py` to activate model training.
   
 * You use `pred.py` to activate model testing.
+
 ## Related Papers
  <a id="click_jump"></a>
  <a href="https://ojs.aaai.org/index.php/AAAI/article/download/5430/5286">__mmGaitNet__</a>. Meng, Zhen, et al. "Gait recognition for co-existing multiple people using millimeter wave sensing." Proceedings of the AAAI Conference on Artificial Intelligence. Vol. 34. No. 01. 2020.
