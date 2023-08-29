@@ -75,7 +75,7 @@ We split the dataset into training and validation dataset with the ratio 80 : 20
 
 |Model|Average Accuracy(%)|
 |--|--|
-|mmGaitNet|44.6|
+|mmGaitNet|45.9|
 |SRPNet|37.4|
 |TCPCN|49.7|
 |PointNet|50.6|
