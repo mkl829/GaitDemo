@@ -49,7 +49,7 @@ To test a model:
 
     python pred.py --model_name  <model_name> --pretrained_parameters_path <pretrained_parameters_path>
 
-* `<pretrained_parameters_path>` is the path of pretrained_parameters like `"xxx.pth"`.
+* `<pretrained_parameters_path>` is the path of pretrained_parameters like `"xxx.pth"`.  Some pretrained parameters are placed in `pretrained_models` folder.
 
 ## Implementation Details
 
