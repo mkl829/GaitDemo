@@ -1,3 +1,4 @@
+
 import torch
 import torch.nn as nn
 import numpy as np
@@ -105,7 +106,7 @@ class SharedMLP(nn.Module):
 
         return x
 
-
+# Refer to https://github.com/yanx27/Pointnet_Pointnet2_pytorch/blob/master/models/pointnet_utils.py
 class STN3d(nn.Module):
     # mini_PointNet, regressses to a 3x3 matrix
     # according to STN, the transform is customized
