@@ -25,7 +25,7 @@ parser.add_argument("--save_acc",type=float,default=0.4, help="model are saved i
 parser.add_argument("--lr", type=float, default=1e-3, help="classifier adam: learning rate")
 parser.add_argument("--decay_rate", type=float, default=0, help="weight decay")
 parser.add_argument("--label_smooth",type=float, default=0, help="label smoothing")
-# tcpcn --lr 1e-4 --decay_rate 1e-3
+# another suggested setting for tcpcn: --lr 1e-4 --decay_rate 1e-3
 #---- parameter check ----#
 opt = parser.parse_args()
 if opt.model_name is None:
