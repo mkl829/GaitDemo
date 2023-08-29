@@ -49,6 +49,7 @@ def eval(loader, pretrained_parameters_path):
     
     ####################################
     for i, (pc, target) in enumerate(loader):
+        pc = pc.cuda()
         target = target.squeeze().cuda().long()
         if opt.model_name in ["mmgaitnet"]:
             pred, _ = classifier(pc)
